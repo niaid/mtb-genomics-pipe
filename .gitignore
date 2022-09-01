@@ -9,6 +9,7 @@
 !cluster.yaml
 !development
 !Snakefile
+!samples.csv
 
 # Ignore all files named .DS_Store or starting with ._
 **/.DS_Store
