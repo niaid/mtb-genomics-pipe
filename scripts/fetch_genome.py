@@ -6,7 +6,7 @@ import argparse
 fetches reference genome
 """
 
-Entrez.email = "brendan.jeffrey@nih.gov"
+Entrez.email = "your.email@mailplace.com"
 
 # cl args
 parser = argparse.ArgumentParser(description='Pull reference genome using Entrez')
