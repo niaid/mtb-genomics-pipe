@@ -1,0 +1,41 @@
+__default__:
+  threads: 1
+  queue: short
+  mem: h_vmem=8G
+  log: '{log}'
+
+get_fastq_pe:
+  time: '18:00'
+  mem: h_vmem=12G
+
+trim_reads_pe:
+  time: '18:00'
+  mem: h_vmem=24G
+
+map_reads:
+  time: '18:00'
+  mem: h_vmem=24G
+
+pilon:
+  time: '18:00'
+  mem: h_vmem=24G
+
+merge_vcfs:
+  time: '18:00'
+  mem: h_vmem=72G
+
+tbprofiler:
+  time: '18:00'
+  mem: h_vmem=24G
+
+merge_tbprofiler:
+  time: '18:00'
+  mem: h_vmem=24G
+
+parse_vcf_to_multifasta:
+  time: '18:00'
+  mem: h_vmem=24G
+
+lorikeet:
+  time: '18:00'
+  mem: h_vmem=12G
