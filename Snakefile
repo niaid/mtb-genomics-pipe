@@ -50,7 +50,8 @@ ind_vcf = expand("output/pilon/individual/{sample}.filt.vcf.gz", sample=samples.
 
 rule all:
     # input: multi_vcf
-    input: tbprofiler_dst, tbprofiler_vars, tbprofiler_summary, multi_vcf
+    # input: tbprofiler_dst, tbprofiler_vars, tbprofiler_summary, multi_vcf
+    input: tbprofiler_dst, tbprofiler_vars, tbprofiler_summary
 
 ##### Modules #####
 include: "rules/reference.smk"

@@ -13,9 +13,11 @@ rule tbprofiler:
     log:
         "log/tbprofiler_" + tbprofiler_caller + "/{sample}.log"
     threads: 8
-    conda:
-        "../envs/tbprofiler.yaml"
+    # conda:
+    #     "../envs/tbprofiler.yaml"
     shell:"""
+        module purge
+        module load tbprofiler/4.3.0_python3
         tb-profiler profile --threads {threads} \
             --no_trim \
             --caller {params.caller} \
@@ -51,9 +53,11 @@ rule merge_tbprofiler:
     log:
         f"log/tbprofiler_merge/{merged_sample_name}_tbprofiler_{tbprofiler_caller}.log"
     threads: 8
-    conda:
-        "../envs/tbprofiler.yaml"
+    # conda:
+    #     "../envs/tbprofiler.yaml"
     shell:"""
+        module purge
+        module load tbprofiler/4.3.0_python3
         tb-profiler collate --dir {params.working_dir} --samples {input.samples_to_merge} --prefix {params.out_name} 2> {log}
     """
 
@@ -72,10 +76,10 @@ rule update_tbprofiler:
         caller=config["tool_params"]["tbprofiler"]["caller"]
     log:
         f"log/tbprofiler_merge/{merged_sample_name}_tbprofiler_{tbprofiler_caller}_update.log"
-    conda:
-        "../envs/tbprofiler.yaml"
+    # conda:
+    #     "../envs/tbprofiler.yaml"
     shell:"""
-        cp {input.json}  -o {output.json} -d 
+        cp {input.json} {output.json}
         cp {input.variants} {output.variants}
         cp {input.summary} {output.summary}
     """
